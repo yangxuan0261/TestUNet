@@ -31,7 +31,8 @@ public class PlayerController : NetworkBehaviour {
 	}
 
     /// <summary>
-    /// 加上 [Command] 告诉服务端这个是需要同步给各个客户端的方法，方法的前缀一定要是Cmd
+    /// 加上 [Command] 告诉服务端生产一个子弹，然后同步给各个客户端这个子弹对象，这个对象一定要
+    /// Network Manager中的 Registered Spawnabel Prefabs中注册过，方法的前缀一定要是Cmd
     /// </summary>
     [Command]
     public void CmdFire()
