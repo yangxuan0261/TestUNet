@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\MyNetworkMgr.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
