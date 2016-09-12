@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class Health : NetworkBehaviour {
+public class Health : NetworkBehaviour
+{
 
     public const int mMaxHealth = 100;
 
@@ -10,7 +11,7 @@ public class Health : NetworkBehaviour {
     /// 同步各个客户端的变量mCurrHealth
     /// 当变量mCurrHealth变化的时候，会回调OnChangeHealth方法，并把值传进去该方法
     /// </summary>
-    [SyncVar (hook = "OnChangeHealth")]
+    [SyncVar(hook = "OnChangeHealth")]
     public int mCurrHealth = mMaxHealth;
     public RectTransform mHealthBar;
     public bool mIsDestroyOnDead;
@@ -30,7 +31,7 @@ public class Health : NetworkBehaviour {
         //Q:为什么要加 isServer判断呢？
         //A:因为里面后面执行的代码里有个同步的变量mCurrHealth，以服务端为主，不然所有客户端都同步有个n*n的同步复制度
         //so, 凡是有涉及到需要 "同步变量SyncVar" 和调用 "ClientRpc方法" 的代码，都需要进行 isServer 判断，谁叫服务端才是老大呢
-        if (!isServer) 
+        if (!isServer)
             return;
 
         mCurrHealth -= _amount;
@@ -73,9 +74,12 @@ public class Health : NetworkBehaviour {
     }
 
 
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
 }
