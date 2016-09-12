@@ -6,14 +6,24 @@ public class PlayerController : NetworkBehaviour
 {
 
     public static PlayerController gPlayer = null;
+    public bool testMessageBase = false;
+    public bool testEvent = false;
 
     void Start()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //    return;
 
-        gPlayer = this;
-        GameObject.Find("CtrlButton").GetComponent<BtnCtrl3>().SetupClient();
+        if (testMessageBase)
+        {
+            gPlayer = this;
+            GameObject.Find("CtrlButton").GetComponent<BtnCtrl3>().SetupClient();
+        }
+
+        if (testEvent)
+        {
+            MyCombat bat = gameObject.AddComponent<MyCombat>();
+        }
     }
 
     public GameObject mBulletPrefab;
@@ -22,7 +32,6 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!isLocalPlayer)
             return;
 
@@ -59,4 +68,6 @@ public class PlayerController : NetworkBehaviour
         //base.OnStartLocalPlayer();
         GetComponent<MeshRenderer>().material.color = Color.blue;
     }
+
+
 }
