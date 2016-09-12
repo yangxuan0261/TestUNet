@@ -18,7 +18,7 @@ public class ScoreMessage : MessageBase
             , score, scorePos, lives);
     }
 
-    public override void Serialize(NetworkWriter writer)
+    public override void Serialize(NetworkWriter writer) 
     {
         //base.Serialize(writer);
         Debug.Log("--- Serialize");

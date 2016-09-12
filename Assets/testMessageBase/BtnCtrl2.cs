@@ -14,9 +14,6 @@ public class BtnCtrl2 : MonoBehaviour
         public static short Score = MsgType.Highest + 1;
     };
 
-
-    
-
     // Create a client and connect to the server port  
     public void SetupClient()
     {
