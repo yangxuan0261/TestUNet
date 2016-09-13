@@ -11,6 +11,9 @@ public class SmoothMove : NetworkBehaviour
     [SerializeField]
     Transform myTransform; //SerializeField用于inspector中显示非public变量
 
+    private Vector3 lastPos;
+    private float threshold = 0.5f;
+
     [SerializeField]
     float lerpRate = 15.0f;
 
@@ -34,10 +37,10 @@ public class SmoothMove : NetworkBehaviour
         syncPos = pos; //4. 服务端收到信息同步给所有客户端的该对象的syncPos变量
     }
 
-    [ClientCallback]
+    [Client]
     void TransmitPosition() 
     {
-        if (isLocalPlayer) //3. 只用本机玩家才提交位置信息到server上
+        if (isLocalPlayer && Vector3.Distance(myTransform.position, lastPos) > threshold) //3. 只用本机玩家才提交位置信息到server上
         {
             CmdProvidePositionToServer(myTransform.position);
         }
