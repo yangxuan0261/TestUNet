@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+[NetworkSettings (channel = 0, sendInterval = 0.033f)]
 public class SmoothMove : NetworkBehaviour
 {
 
@@ -33,6 +34,7 @@ public class SmoothMove : NetworkBehaviour
         {
             myTransform.position = Vector3.Lerp(myTransform.position, syncPos, Time.deltaTime * lerpRate);
         }
+        NetworkManager.singleton.client.GetRTT();
     }
 
     [Command]
