@@ -17,10 +17,14 @@ public class SmoothMove : NetworkBehaviour
     [SerializeField]
     float lerpRate = 15.0f;
 
+    public void Update()
+    {
+        LerpPosition(); //因为方法利用了Time.deltaTime，所以只能在 Updata中调用
+    }
+
     public void FixedUpdate() //1. server 和 client 都执行FixedUpdate
     {
         TransmitPosition(); //2. 因为是 ClientCallback，所以只有客户端调用
-        LerpPosition();
     }
 
     void LerpPosition()
@@ -38,7 +42,7 @@ public class SmoothMove : NetworkBehaviour
     }
 
     [Client]
-    void TransmitPosition() 
+    void TransmitPosition()
     {
         if (isLocalPlayer && Vector3.Distance(myTransform.position, lastPos) > threshold) //3. 只用本机玩家才提交位置信息到server上
         {
