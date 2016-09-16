@@ -2,19 +2,36 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class PlayerController : NetworkBehaviour {
+public class PlayerController : NetworkBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public static PlayerController gPlayer = null;
+    public bool testMessageBase = false;
+    public bool testEvent = false;
+
+    void Start()
+    {
+        //if (!isLocalPlayer)
+        //    return;
+
+        if (testMessageBase)
+        {
+            gPlayer = this;
+            GameObject.Find("CtrlButton").GetComponent<BtnCtrl3>().SetupClient();
+        }
+
+        if (testEvent)
+        {
+            MyCombat bat = gameObject.AddComponent<MyCombat>();
+        }
+    }
 
     public GameObject mBulletPrefab;
     public Transform mBulletSpawn;
 
-	// Update is called once per frame
-	void Update () {
-
+    // Update is called once per frame
+    void Update()
+    {
         if (!isLocalPlayer)
             return;
 
@@ -28,7 +45,7 @@ public class PlayerController : NetworkBehaviour {
         {
             CmdFire();
         }
-	}
+    }
 
     /// <summary>
     /// 加上 [Command] 告诉服务端生产一个子弹，然后同步给各个客户端这个子弹对象，这个对象一定要
@@ -51,4 +68,6 @@ public class PlayerController : NetworkBehaviour {
         //base.OnStartLocalPlayer();
         GetComponent<MeshRenderer>().material.color = Color.blue;
     }
+
+
 }

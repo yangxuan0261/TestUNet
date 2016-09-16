@@ -71,6 +71,11 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player_Id.cs" />
     <Compile Include="Assets\Scripts\SmoothMove.cs" />
+    <Compile Include="Assets\testEvent\MyCombat.cs" />
+    <Compile Include="Assets\testMessageBase\BtnCtrl1.cs" />
+    <Compile Include="Assets\testMessageBase\BtnCtrl2.cs" />
+    <Compile Include="Assets\testMessageBase\BtnCtrl3.cs" />
+    <Compile Include="Assets\testMessageBase\ScoreMessage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
