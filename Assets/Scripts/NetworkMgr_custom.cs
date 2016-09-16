@@ -43,7 +43,13 @@ public class NetworkMgr_custom : NetworkManager
     {
         if (level == 0)
         {
-            SetupMenuSceneButtons();
+            //SetupMenuSceneButtons();
+
+            //Fixed issue: 重新启动失败问题
+            //视频讲的太快没太听明白，大概是因为disconnect后，返回到
+            //菜单界面，里面点击 再次启动StartupHost，之前的旧的 Network Manager 可能
+            //还占用者端口，所以再次启动时会失败
+            StartCoroutine(SetupMenuSceneButtons());
         }
         else
         {
@@ -54,8 +60,9 @@ public class NetworkMgr_custom : NetworkManager
     /// <summary>
     /// 菜单界面的ui事件
     /// </summary>
-    public void SetupMenuSceneButtons()
+    public IEnumerator SetupMenuSceneButtons()
     {
+        yield return new WaitForSeconds(0.3f);
         GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.AddListener(StartupHost);
 
