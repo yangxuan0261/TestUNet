@@ -31,6 +31,7 @@ public class Enemy_target : NetworkBehaviour
 
         if (targetTransform == null)
         {
+            //获取 raycastLayer 层中的 myTransform.position 位置的 radius 范围内的对象
             Collider[] hitColiders = Physics.OverlapSphere(myTransform.position, radius, raycastLayer);
 
             if (hitColiders.Length > 0)
