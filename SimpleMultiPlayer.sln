@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMultiPlayer.CSharp", "SimpleMultiPlayer.CSharp.csproj", "{B39CD701-56EC-9571-53B5-001843DB043C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMultiPlayer.CSharp.Editor", "SimpleMultiPlayer.CSharp.Editor.csproj", "{EDCD5100-AB83-3BF6-79B8-A90519BEC449}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B39CD701-56EC-9571-53B5-001843DB043C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B39CD701-56EC-9571-53B5-001843DB043C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B39CD701-56EC-9571-53B5-001843DB043C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDCD5100-AB83-3BF6-79B8-A90519BEC449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCD5100-AB83-3BF6-79B8-A90519BEC449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCD5100-AB83-3BF6-79B8-A90519BEC449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCD5100-AB83-3BF6-79B8-A90519BEC449}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
