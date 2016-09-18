@@ -86,6 +86,8 @@
     <Compile Include="Assets\testMessageBase\BtnCtrl3.cs" />
     <Compile Include="Assets\testMessageBase\ScoreMessage.cs" />
     <Compile Include="Assets\testTargetSync\ActorTargetSync.cs" />
+    <Compile Include="Assets\testTargetSync\MoveCtrl.cs" />
+    <Compile Include="Assets\testTargetSync\NetworkProximityCheckerCustom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UNet Chat\ReadMe.txt" />
