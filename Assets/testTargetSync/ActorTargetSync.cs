@@ -7,10 +7,16 @@ public class ActorTargetSync : NetworkBehaviour
     GameObject go = null;
     float counter = 0.0f;
     public int mAge = 1;
+    public bool Testing = true;
 
     public override void OnStartClient()
     {
         gameObject.name = "Player_" + GetComponent<NetworkIdentity>().netId;
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        GetComponent<MeshRenderer>().material.color = Color.blue;
     }
 
     /// <summary>
@@ -19,7 +25,9 @@ public class ActorTargetSync : NetworkBehaviour
     [ServerCallback]
     public void Update()
     {
-        Debug.Log("--- server Update");
+        //Debug.Log("--- server Update");
+        if (!Testing)
+            return;
 
         counter += Time.deltaTime;
         if (counter > 3.0f)
@@ -32,8 +40,8 @@ public class ActorTargetSync : NetworkBehaviour
 
     public override bool OnSerialize(NetworkWriter writer, bool initialState)
     {
-        Debug.LogFormat("--- OnSerialize");
-        writer.Write(mAge);
+        //Debug.LogFormat("--- OnSerialize");
+        //writer.Write(mAge);
 
 
         return true;
@@ -46,7 +54,7 @@ public class ActorTargetSync : NetworkBehaviour
     /// <param name="initialState"></param>
     public override void OnDeserialize(NetworkReader reader, bool initialState)
     {
-        mAge = reader.ReadInt32();
-        Debug.LogFormat("--- OnDeserialize, name:{0}, age:{1}", gameObject.name, mAge);
+        //mAge = reader.ReadInt32();
+        //Debug.LogFormat("--- OnDeserialize, name:{0}, age:{1}", gameObject.name, mAge);
     }
 }
